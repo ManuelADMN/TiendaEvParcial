@@ -27,10 +27,11 @@
   <main>
     <h2>Tu Carrito de Compras</h2>
     <div id="cart-container">
-      <!-- Si el carrito está vacío -->
+      <!-- Mensaje cuando el carrito está vacío -->
       <p id="emptyCartMsg">Tu carrito está vacío.</p>
+
       <!-- Lista de items del carrito (generada por JS) -->
-      <table id="cartTable" class="cart-table">
+      <table id="cartTable" class="cart-table" aria-label="Tabla de carrito">
         <thead>
           <tr>
             <th>Producto</th>
@@ -44,15 +45,24 @@
           <!-- Items del carrito insertados aquí por JS -->
         </tbody>
       </table>
+
       <!-- Total -->
-      <p id="cartTotal" class="cart-total"></p>
-      <button id="clearCartBtn" style="display:none;">Vaciar Carrito</button>
+      <p id="cartTotal" class="cart-total" aria-live="polite"></p>
+
+      <!-- Acciones del carrito -->
+      <div class="cart-actions">
+        <button id="clearCartBtn" style="display:none;">Vaciar Carrito</button>
+        <button id="payBtn" style="display:none;">Pagar</button>
+      </div>
     </div>
   </main>
 
   <footer>
     <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Contenedor para notificaciones (toasts, no bloqueantes) -->
+  <div id="toast" class="toast" aria-live="polite"></div>
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
