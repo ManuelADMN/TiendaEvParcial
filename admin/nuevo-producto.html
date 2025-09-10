@@ -37,10 +37,11 @@
           <small id="prodDescError" class="error-msg"></small>
         </div>
         <div class="form-group">
-          <label for="prodPrecio">Precio:</label>
-          <input type="number" id="prodPrecio" name="prodPrecio" min="0" step="0.01" required />
-          <small id="prodPrecioError" class="error-msg"></small>
+          <label for="prodImagenUrl">Imagen (URL):</label>
+          <input type="url" id="prodImagenUrl" name="prodImagenUrl" placeholder="https://..." />
+          <small class="help">Pega un enlace directo a una imagen (JPG/PNG/GIF).</small>
         </div>
+        <img id="prodImgPreview" alt="Previsualización" style="display:none;max-width:180px;height:auto;margin-top:8px;">
         <div class="form-group">
           <label for="prodStock">Stock:</label>
           <input type="number" id="prodStock" name="prodStock" min="0" step="1" required />

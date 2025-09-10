@@ -60,10 +60,13 @@
           </select>
           <small id="prodCategoriaError" class="error-msg"></small>
         </div>
+        <!-- Reemplaza input file por URL -->   
         <div class="form-group">
-          <label for="prodImagen">Imagen:</label>
-          <input type="file" id="prodImagen" name="prodImagen" accept="image/*" />
+          <label for="prodImagenUrl">Imagen (URL):</label>
+          <input type="url" id="prodImagenUrl" name="prodImagenUrl" placeholder="https://..." />
+          <small class="help">Pega un enlace directo a una imagen (JPG/PNG/GIF).</small>
         </div>
+        <img id="prodImgPreview" alt="Previsualización" style="display:none;max-width:180px;height:auto;margin-top:8px;">
         <button type="submit">Guardar Cambios</button>
         <a href="lista-productos.html" class="btn-cancel">Cancelar</a>
       </form>
