@@ -1,295 +1,472 @@
-/* RESET BÁSICO */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #000;
+/* ================================
+   RESET Y VARIABLES
+   ================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  /* Escalas responsivas */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px;
+  --radius-sm: 4px; --radius-md: 6px; --radius-lg: 10px;
+
+  /* Tipografía */
+  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fs-hero: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  --fs-h2: clamp(1.2rem, 1.2vw + 1rem, 1.6rem);
+  --fs-base: 16px;
+
+  /* Paleta B/N */
+  --c-bg: #fff;
+  --c-fg: #000;
+  --c-muted: #666;
+  --c-soft: #f3f3f3;
+  --c-border: #000;
+
+  /* Interacciones */
+  --c-btn: #000;
+  --c-btn-hover: #333;
+  --focus: 0 0 0 3px rgba(0,0,0,.25);
+
+  /* Logo */
+  --logo-size-desktop: 64px;
+  --logo-size-mobile: 48px;
 }
 
-/* ENCABEZADO Y NAVEGACIÓN */
-.main-nav {
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
+html { scroll-behavior: smooth; }
+body{
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  background-color: var(--c-bg);
+  color: var(--c-fg);
 }
-.main-nav .logo img {
-  height: 40px;
+
+/* A11y: foco visible para elementos interactivos */
+a, button, input, select, textarea {
+  outline: none;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  box-shadow: var(--focus);
+}
+
+/* ================================
+   ENCABEZADO Y NAVEGACIÓN
+   ================================ */
+.main-nav{
+  position: sticky; top: 0; z-index: 50;
+  background: #000; color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+}
+.main-nav .logo{ display: inline-flex; align-items: center; }
+.main-nav .logo img{
+  height: var(--logo-size-desktop); width: auto; max-height: 80px; object-fit: contain;
 }
 .main-nav .nav-links,
-.main-nav .nav-actions {
+.main-nav .nav-actions{
   list-style: none;
-  display: flex;
-  align-items: center;
-}
-.main-nav .nav-links li,
-.main-nav .nav-actions li {
-  margin: 0 10px;
+  display: flex; align-items: center; gap: var(--space-3);
+  flex-wrap: wrap;
 }
 .main-nav .nav-links a,
-.main-nav .nav-actions a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 8px;
+.main-nav .nav-actions a{
+  color: #fff; text-decoration: none;
+  padding: 6px 10px; border-radius: var(--radius-sm);
+  transition: background .2s ease;
 }
 .main-nav .nav-links a.active,
-.main-nav .nav-actions a:hover {
-  background-color: #333;
-  border-radius: 4px;
-}
-.main-nav .cart-link span {
-  font-weight: bold;
+.main-nav .nav-actions a:hover{ background: #333; }
+.main-nav .cart-link span{ font-weight: 700; }
+
+/* Nav responsive: apila en pantallas pequeñas */
+@media (max-width: 720px){
+  .main-nav{ flex-wrap: wrap; }
+  .main-nav .logo{ order: 1; }
+  .main-nav .nav-actions{ order: 2; width: 100%; justify-content: flex-end; }
+  .main-nav .nav-links{ order: 3; width: 100%; justify-content: flex-start; }
+  .main-nav .logo img{ height: var(--logo-size-mobile); }
 }
 
-/* PIE DE PÁGINA */
-footer {
-  background-color: #000;
-  color: #fff;
+/* ================================
+   PIE DE PÁGINA
+   ================================ */
+footer{
+  background: #000; color: #fff;
   text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
+  padding: var(--space-5) 0;
+  margin-top: var(--space-8);
 }
 
-/* HERO */
-.hero {
+/* ================================
+   HERO (Home)
+   ================================ */
+.hero{
   text-align: center;
-  padding: 40px 20px;
-  background-color: #f0f0f0;
+  padding: clamp(28px, 4vw, 56px) var(--space-5);
+  background: var(--c-soft);
 }
-.hero .store-name {
-  color: #000;
+.hero .store-name{
+  font-size: var(--fs-hero);
+  font-weight: 800;
 }
-.hero .hero-image {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
+.hero .hero-image{
+  max-width: 100%; height: auto; margin-top: var(--space-5);
+  border-radius: var(--radius-md);
 }
 
-/* GRID DE PRODUCTOS */
-.product-grid {
+/* ================================
+   GRID DE PRODUCTOS
+   ================================ */
+.product-grid{
+  --min-card: 220px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-card), 1fr));
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5);
 }
-.product-grid .product-card {
+.product-card{
   background: #fff;
-  border: 1px solid #000;
-  border-radius: 5px;
-  padding: 10px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
   text-align: center;
+  display: flex; flex-direction: column; gap: var(--space-3);
+  transition: transform .15s ease;
 }
-.product-grid .product-card img {
-  max-width: 100%;
-  height: 150px;
+.product-card:hover{ transform: translateY(-2px); }
+.product-card img{
+  width: 100%;
+  aspect-ratio: 4/3;
   object-fit: cover;
+  border-radius: var(--radius-sm);
 }
-.product-grid .product-card h3 {
-  font-size: 1.1em;
-  margin: 10px 0;
+.product-card h3{
+  font-size: clamp(1rem, .5vw + 1rem, 1.125rem);
+  font-weight: 700;
 }
-.product-grid .product-card p.price {
-  font-weight: bold;
-  color: #000;
-  margin: 5px 0;
+.product-card p.price{ font-weight: 800; color: var(--c-fg); }
+.product-card button{
+  background: var(--c-btn); color: #fff;
+  border: none; border-radius: var(--radius-sm);
+  padding: 10px 12px; cursor: pointer;
 }
-.product-grid .product-card button {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 3px;
+.product-card button:hover{ background: var(--c-btn-hover); }
+
+/* ================================
+   DETALLE DE PRODUCTO
+   ================================ */
+.product-detail{
+  max-width: 1000px; margin: var(--space-6) auto; padding: 0 var(--space-5);
 }
-.product-grid .product-card button:hover {
-  background: #333;
+.detail-content{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-6);
+}
+.detail-image{
+  width: 100%;
+}
+.detail-image img{
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+}
+.detail-info{ display: grid; gap: var(--space-3); align-content: start; }
+.product-detail h2{ font-size: var(--fs-h2); }
+.product-detail button#addToCartBtn{
+  background: var(--c-btn); color: #fff;
+  padding: 12px 16px; border: none; border-radius: var(--radius-md); cursor: pointer;
+}
+.product-detail button#addToCartBtn:hover{ background: var(--c-btn-hover); }
+
+@media (max-width: 900px){
+  .detail-content{ grid-template-columns: 1fr; }
 }
 
-/* DETALLE DE PRODUCTO */
-.product-detail {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
+/* ================================
+   BLOGS (LISTA)
+   ================================ */
+.blog-list{
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5);
 }
-.product-detail .detail-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.product-detail .detail-image {
-  flex: 1 1 300px;
-  max-width: 300px;
-}
-.product-detail .detail-info {
-  flex: 2 1 300px;
-}
-.product-detail button#addToCartBtn {
-  background: #000;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.product-detail button#addToCartBtn:hover {
-  background: #333;
-}
-
-/* BLOGS */
-.blog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-}
-.blog-item {
+.blog-item{
   background: #fff;
-  border: 1px solid #000;
-  border-radius: 5px;
-  display: flex;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  overflow: hidden;
 }
-.blog-item .blog-thumb {
-  width: 150px;
-  height: 150px;
+.blog-item .blog-thumb{
+  width: 100%; height: 100%;
   object-fit: cover;
-  border-radius: 5px 0 0 5px;
 }
-.blog-item .blog-content {
-  padding: 10px;
+.blog-item .blog-content{
+  padding: var(--space-4);
+  display: grid; gap: var(--space-2);
 }
-.blog-item .read-more {
-  display: inline-block;
-  margin-top: 8px;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
+.blog-item .read-more{
+  display: inline-block; margin-top: var(--space-2);
+  color: var(--c-fg); font-weight: 800; text-decoration: none;
 }
-.blog-item .read-more:hover {
-  color: #555;
+.blog-item .read-more:hover{ color: #555; }
+
+@media (max-width: 680px){
+  .blog-item{ grid-template-columns: 1fr; }
+  .blog-item .blog-thumb{ aspect-ratio: 16/9; }
 }
 
-/* FORMULARIOS */
+/* ================================
+   BLOG (DETALLE) — AJUSTE DE IMAGEN
+   ================================ */
+.blog-detail{ width: min(100%, 1000px); margin: var(--space-6) auto; padding: 0 var(--space-5); }
+.blog-detail-img{
+  display: block;
+  width: 100%;
+  max-width: 720px;       /* ← controla tamaño máximo */
+  margin: var(--space-4) auto var(--space-2);
+  aspect-ratio: 16/9;     /* ← relación 16:9 para evitar que se vea enorme/alta */
+  object-fit: cover;      /* recorta con elegancia */
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+.blog-detail p{ margin: 12px 0; }
+
+/* En pantallas pequeñas, usa todo el ancho pero respeta 16:9 */
+@media (max-width: 680px){
+  .blog-detail-img{ max-width: 100%; }
+}
+
+/* ================================
+   NOSOTROS — AJUSTE DE IMÁGENES
+   (Funciona si tu contenedor tiene clase .nosotros o .about)
+   ================================ */
+
+/* Hero de nosotros: imagen ancha, no gigante */
+.nosotros .hero-image,
+.about .hero-image{
+  display: block;
+  width: 100%;
+  max-width: 980px;       /* límite razonable en escritorio */
+  margin: var(--space-5) auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+}
+
+/* Cards/Secciones con imágenes: 4:3, recorte elegante */
+.about-grid, .nosotros-grid, .team-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5);
+}
+.about-card, .nosotros-card, .team-card{
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: grid; gap: var(--space-3);
+}
+.about-card img,
+.nosotros-card img,
+.team-card img{
+  width: 100%;
+  aspect-ratio: 4/3;      /* ← controla la altura */
+  object-fit: cover;      /* recorta sin deformar */
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--c-border);
+}
+
+/* fallback genérico si la página usa selectores más simples */
+.nosotros img.about-img,
+.about img.about-img{
+  width: 100%;
+  max-width: 720px;
+  margin: var(--space-4) auto;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+}
+
+/* ================================
+   FORMULARIOS (Contacto, Registro, Login)
+   ================================ */
 form.form-contacto,
 form.form-registro,
-form.form-login {
-  max-width: 400px;
-  margin: 20px auto;
+form.form-login{
+  width: min(100%, 520px);
+  margin: var(--space-6) auto;
   background: #fff;
-  border: 1px solid #000;
-  border-radius: 5px;
-  padding: 15px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
 }
-form .form-group {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
+form .form-group{
+  margin-bottom: var(--space-4);
+  display: grid; gap: var(--space-2);
 }
-form .form-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+form .form-group label{ font-weight: 700; }
 form .form-group input,
 form .form-group textarea,
-form .form-group select {
-  padding: 8px;
-  border: 1px solid #000;
-  border-radius: 3px;
+form .form-group select{
+  padding: 10px 12px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  background: #fff; color: var(--c-fg);
 }
-.error-msg {
-  color: #d00;
+form .form-group textarea{ min-height: 120px; resize: vertical; }
+.error-msg{ color: #d00; font-size: .9rem; }
+.success-msg{ color: #090; font-weight: 800; margin-top: var(--space-2); }
+
+/* ================================
+   BOTONES
+   ================================ */
+button, .btn{
+  background: var(--c-btn); color: #fff;
+  padding: 10px 14px; border: none; border-radius: var(--radius-sm);
+  cursor: pointer; transition: background .2s ease, transform .05s ease;
 }
-.success-msg {
-  color: #090;
-  font-weight: bold;
+button:hover, .btn:hover{ background: var(--c-btn-hover); }
+button:active, .btn:active{ transform: scale(.98); }
+.btn-cancel{ background: #555; }
+.btn-cancel:hover{ background: #333; }
+
+/* ================================
+   TABLAS (Carrito) + wrapper responsivo
+   ================================ */
+#cart-container{ padding: 0 var(--space-5); }
+#cart-container{ overflow-x: auto; } /* scroll horizontal en móviles */
+
+.cart-table{
+  width: 100%; border-collapse: collapse; margin: var(--space-4) 0;
+  min-width: 560px; /* asegura scroll en pantallas muy estrechas */
+}
+.cart-table th, .cart-table td{
+  border: 1px solid var(--c-border);
+  padding: 10px; text-align: center;
+}
+.cart-table th{ background: var(--c-soft); }
+.cart-total{
+  font-size: 1.1rem; font-weight: 800; text-align: right; margin: var(--space-3) 0;
 }
 
-/* BOTONES */
-button, .btn {
-  background: #000;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-button:hover, .btn:hover {
-  background: #333;
-}
-.btn-cancel {
-  background: #555;
-}
-.btn-cancel:hover {
-  background: #333;
-}
-
-/* TABLA CARRITO */
-.cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 10px;
-}
-.cart-table th, .cart-table td {
-  border: 1px solid #000;
-  padding: 8px;
-  text-align: center;
-}
-.cart-table th {
-  background: #f0f0f0;
-}
-.cart-total {
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: right;
-  margin: 10px 0;
-}
-
-/* TOAST */
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  min-width: 200px;
-  background: #000;
-  color: #fff;
-  padding: 10px;
-  border-radius: 6px;
-  opacity: 0;
-  transform: translateY(20px);
+/* ================================
+   TOAST (no bloqueante)
+   ================================ */
+.toast{
+  position: fixed; bottom: 20px; right: 20px;
+  min-width: 220px; max-width: 90vw;
+  background: #000; color: #fff;
+  padding: 12px 14px; border-radius: var(--radius-lg);
+  opacity: 0; transform: translateY(20px);
   transition: opacity .3s ease, transform .3s ease;
   z-index: 9999;
 }
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.toast.success { background: #000; }
-.toast.error { background: #333; }
-.toast.info { background: #555; }
+.toast.show{ opacity: 1; transform: translateY(0); }
+.toast.success{ background: #000; }
+.toast.error{ background: #333; }
+.toast.info{ background: #555; }
 
-/* RESPONSIVE */
+/* ================================
+   UTILIDADES
+   ================================ */
+.container{ width: min(100%, 1100px); margin: 0 auto; padding: 0 var(--space-5); }
+h2{ font-size: var(--fs-h2); margin: var(--space-5) 0 var(--space-3); }
+
+/* ================================
+   AJUSTES EXTRA RESPONSIVE
+   ================================ */
+@media (max-width: 600px){
+  /* Nav ya colapsa arriba */
+  .hero{ padding: var(--space-6) var(--space-4); }
+  .product-grid{ gap: var(--space-4); padding: var(--space-5) var(--space-4); }
+  #cart-container{ padding: 0 var(--space-4); }
+}
+
+/* ================================
+   LOGO tamaño (pediste más grande)
+   ================================ */
+.main-nav .logo img{
+  height: var(--logo-size-desktop);
+}
+@media (max-width: 600px){
+  .main-nav .logo img{ height: var(--logo-size-mobile); }
+}
+
+/* ================================
+   NOSOTROS – imagen de equipo.png
+   ================================ */
+
+/* Contenedor opcional (si tienes una sección/hero en nosotros) */
+.nosotros-hero {
+  text-align: center;
+  padding: var(--space-6) var(--space-5);
+  background: var(--c-soft);
+  border-radius: var(--radius-md);
+}
+
+/* Si tu <img> tiene clase .team-img, se aplicará esto */
+.nosotros-hero .team-img {
+  width: min(100%, 900px);
+  aspect-ratio: 16/9;        /* relación agradable para cabecera */
+  object-fit: cover;         /* recorte elegante sin deformar */
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  display: block;
+  margin: var(--space-4) auto;
+  box-shadow: 0 2px 14px rgba(0,0,0,.06);
+}
+
+/* ------- Fallback SIN cambiar HTML -------
+   Afecta a cualquier <img> cuyo src contenga "equipo" dentro del <main>
+   (por ejemplo: img/equipo.png)
+*/
+main img[src*="equipo"] {
+  width: min(100%, 900px);
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  display: block;
+  margin: var(--space-4) auto;
+  box-shadow: 0 2px 14px rgba(0,0,0,.06);
+}
+
+/* Ajuste en pantallas pequeñas */
 @media (max-width: 600px) {
-  .main-nav {
-    flex-direction: column;
-    align-items: flex-start;
+  .nosotros-hero { padding: var(--space-5) var(--space-4); }
+  .nosotros-hero .team-img,
+  main img[src*="equipo"] {
+    aspect-ratio: 4/3;      /* un poco más alto en móvil */
   }
-  .main-nav .nav-links, .main-nav .nav-actions {
-    flex-direction: column;
-    margin: 5px 0;
-  }
-  .blog-item {
-    flex-direction: column;
-    align-items: center;
-  }
-  .blog-item .blog-thumb {
-    width: 100%;
-    height: auto;
-    border-radius: 5px 5px 0 0;
-  }
+}
+/* ================================
+   NOSOTROS – centrar textos
+   ================================ */
+
+/* Si tu archivo es nosotros.html, esto centra el contenido principal */
+body.nosotros-page main {
+  text-align: center;
+}
+
+/* Limita el ancho de los párrafos para mejor lectura */
+body.nosotros-page main p {
+  max-width: 800px;
+  margin: 0 auto var(--space-3);
+}
+
+/* Títulos con margen equilibrado */
+body.nosotros-page main h1,
+body.nosotros-page main h2,
+body.nosotros-page main h3 {
+  text-align: center;
+  margin: var(--space-5) auto var(--space-3);
 }
