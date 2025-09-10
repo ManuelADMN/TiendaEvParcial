@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin - Inicio</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Menú lateral de navegación del administrador -->
+    <nav class="admin-nav">
+      <h2>Administración</h2>
+      <ul>
+        <li><a href="index.html" class="active">🏠 Inicio</a></li>
+        <li><a href="lista-productos.html">📦 Productos</a></li>
+        <li><a href="lista-usuarios.html">👥 Usuarios</a></li>
+        <li><a href="#" id="logoutBtn">↩️ Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <!-- Contenido principal del dashboard -->
+    <main class="admin-content">
+      <h1>Bienvenido al Panel de Admin</h1>
+      <p>Utiliza el menú de la izquierda para gestionar los productos y usuarios de la tienda.</p>
+      <p>Recuerda que los cambios realizados aquí afectan la información que ven los clientes en la tienda pública.</p>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

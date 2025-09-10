@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Productos</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar de navegación (mismo en todas páginas admin) -->
+    <nav class="admin-nav">
+      <h2>Administración</h2>
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="lista-productos.html" class="active">📦 Productos</a></li>
+        <li><a href="lista-usuarios.html">👥 Usuarios</a></li>
+        <li><a href="#" id="logoutBtn">↩️ Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <!-- Contenido: Lista de productos -->
+    <main class="admin-content">
+      <h1>Productos</h1>
+      <a href="nuevo-producto.html" class="btn">+ Nuevo Producto</a>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Código</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Categoría</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="adminProductsTable">
+          <!-- Filas de productos insertadas por JS -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

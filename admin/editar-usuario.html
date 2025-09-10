@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Editar Usuario</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <nav class="admin-nav">
+      <h2>Administración</h2>
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="lista-productos.html">📦 Productos</a></li>
+        <li><a href="lista-usuarios.html" class="active">👥 Usuarios</a></li>
+        <li><a href="#" id="logoutBtn">↩️ Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <main class="admin-content">
+      <h1>Editar Usuario</h1>
+      <form id="userFormEdit" class="form-admin">
+        <!-- Igual estructura que nuevo-usuario; los valores se cargan vía JS -->
+        <div class="form-group">
+          <label for="userRun">RUN:</label>
+          <input type="text" id="userRun" name="userRun" maxlength="9" required />
+          <small id="userRunError" class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <label for="userNombre">Nombre:</label>
+          <input type="text" id="userNombre" name="userNombre" maxlength="50" required />
+          <small id="userNombreError" class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <label for="userApellidos">Apellidos:</label>
+          <input type="text" id="userApellidos" name="userApellidos" maxlength="100" required />
+          <small id="userApellidosError" class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Correo:</label>
+          <input type="email" id="userEmail" name="userEmail" maxlength="100" required />
+          <small id="userEmailError" class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <label for="userFechaNac">Fecha de Nacimiento:</label>
+          <input type="date" id="userFechaNac" name="userFechaNac" />
+        </div>
+        <div class="form-group">
+          <label for="userTipo">Tipo de Usuario:</label>
+          <select id="userTipo" name="userTipo" required>
+            <option value="">Seleccione tipo</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Vendedor">Vendedor</option>
+            <option value="Cliente">Cliente</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="userRegion">Región:</label>
+          <select id="userRegion" name="userRegion" required></select>
+        </div>
+        <div class="form-group">
+          <label for="userComuna">Comuna:</label>
+          <select id="userComuna" name="userComuna" required></select>
+        </div>
+        <div class="form-group">
+          <label for="userDireccion">Dirección:</label>
+          <input type="text" id="userDireccion" name="userDireccion" maxlength="300" required />
+          <small id="userDireccionError" class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <label for="userPassword">Contraseña:</label>
+          <input type="password" id="userPassword" name="userPassword" maxlength="10" required />
+          <small id="userPasswordError" class="error-msg"></small>
+        </div>
+        <button type="submit">Guardar Cambios</button>
+        <a href="lista-usuarios.html" class="btn-cancel">Cancelar</a>
+      </form>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

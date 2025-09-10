@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito - Mi Tienda</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="main-nav">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt="Logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <ul class="nav-actions">
+        <li><a href="login.html">Login</a> / <a href="registro.html">Registro</a></li>
+        <li><a href="carrito.html" class="cart-link active">🛒 Carrito <span id="cartCountCar">(0)</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Tu Carrito de Compras</h2>
+    <div id="cart-container">
+      <!-- Si el carrito está vacío -->
+      <p id="emptyCartMsg">Tu carrito está vacío.</p>
+      <!-- Lista de items del carrito (generada por JS) -->
+      <table id="cartTable" class="cart-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cartItems">
+          <!-- Items del carrito insertados aquí por JS -->
+        </tbody>
+      </table>
+      <!-- Total -->
+      <p id="cartTotal" class="cart-total"></p>
+      <button id="clearCartBtn" style="display:none;">Vaciar Carrito</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+.admin-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 100vh;
+}
+/* Menú lateral */
+.admin-nav {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+.admin-nav h2 {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+.admin-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.admin-nav li {
+  margin: 10px 0;
+}
+.admin-nav a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+  border-radius: 3px;
+}
+.admin-nav a:hover, .admin-nav a.active {
+  background-color: #444;
+}
+/* Contenido principal admin */
+.admin-content {
+  padding: 20px;
+  background-color: #fff;
+}
+.admin-content h1 {
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  margin: 10px 0;
+}
+/* Tablas en admin */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.admin-table th, .admin-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+.admin-table th {
+  background-color: #e5e5e5;
+}
+/* Formularios admin */
+.form-admin {
+  max-width: 500px;
+}
+.form-admin .form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.form-admin .form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.form-admin .form-group input,
+.form-admin .form-group textarea,
+.form-admin .form-group select {
+  padding: 6px;
+  border: 1px solid #888;
+  border-radius: 3px;
+}
+.form-admin .form-group input:focus,
+.form-admin .form-group textarea:focus,
+.form-admin .form-group select:focus {
+  outline: none;
+  border-color: #004080;
+}
+.form-admin .error-msg {
+  color: #d00;
+  font-size: 0.85em;
+}
+.btn-cancel {
+  background-color: #aaa;
+}
+.btn-cancel:hover {
+  background-color: #888;
+}
+/* Vista detalle (producto/usuario) */
+.product-detail-admin p, .user-detail-admin p {
+  margin: 8px 0;
+}
+.product-detail-admin p span,
+.user-detail-admin p span {
+  color: #555;
+}

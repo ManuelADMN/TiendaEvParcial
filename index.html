@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Tienda - Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Encabezado con logo y menú de navegación -->
+  <header>
+    <nav class="main-nav">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt="Logo de Mi Tienda" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <ul class="nav-actions">
+        <li><a href="login.html" id="loginLink">Login</a> / <a href="registro.html" id="registerLink">Registro</a></li>
+        <li><a href="carrito.html" class="cart-link">🛒 Carrito <span id="cartCount">(0)</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal de la Home -->
+  <main>
+    <!-- Sección de bienvenida o hero -->
+    <section class="hero">
+      <h1>Bienvenidos a <span class="store-name">Mi Tienda</span></h1>
+      <p>¡Las mejores ofertas en tecnología, moda y mucho más en un solo lugar!</p>
+      <img src="img/banner.jpg" alt="Imagen destacada de la tienda" class="hero-image" />
+    </section>
+
+    <!-- Sección de productos destacados -->
+    <section class="productos-destacados">
+      <h2>Productos Destacados</h2>
+      <!-- Contenedor donde se listarán productos dinámicamente -->
+      <div id="product-list" class="product-grid">
+        <!-- Los productos se insertan aquí vía JS (main.js) usando el arreglo de productos -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página con información de la empresa -->
+  <footer>
+    <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts: primero datos, luego lógica principal -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

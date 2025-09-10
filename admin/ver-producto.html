@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Ver Producto</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <nav class="admin-nav">
+      <h2>Administración</h2>
+      <ul>
+        <li><a href="index.html">🏠 Inicio</a></li>
+        <li><a href="lista-productos.html" class="active">📦 Productos</a></li>
+        <li><a href="lista-usuarios.html">👥 Usuarios</a></li>
+        <li><a href="#" id="logoutBtn">↩️ Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <main class="admin-content">
+      <h1>Detalle Producto</h1>
+      <div class="product-detail-admin">
+        <p><strong>Código:</strong> <span id="detProdCodigo"></span></p>
+        <p><strong>Nombre:</strong> <span id="detProdNombre"></span></p>
+        <p><strong>Descripción:</strong> <span id="detProdDesc"></span></p>
+        <p><strong>Precio:</strong> $<span id="detProdPrecio"></span></p>
+        <p><strong>Stock:</strong> <span id="detProdStock"></span> unidades</p>
+        <p><strong>Stock Crítico:</strong> <span id="detProdStockCritico"></span> unidades</p>
+        <p><strong>Categoría:</strong> <span id="detProdCategoria"></span></p>
+        <p><strong>Imagen:</strong> <span id="detProdImagen"></span></p>
+      </div>
+      <a href="lista-productos.html" class="btn">Volver</a>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

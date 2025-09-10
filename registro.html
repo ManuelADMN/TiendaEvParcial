@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro - Mi Tienda</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="main-nav">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt="Logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <ul class="nav-actions">
+        <li><a href="login.html">Login</a> / <a href="registro.html" class="active">Registro</a></li>
+        <li><a href="carrito.html" class="cart-link">🛒 Carrito <span id="cartCountReg">(0)</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Crear Cuenta</h2>
+    <form id="registerForm" class="form-registro">
+      <div class="form-group">
+        <label for="regRun">RUN:</label>
+        <input type="text" id="regRun" name="regRun" maxlength="9" required />
+        <small id="regRunError" class="error-msg"></small>
+      </div>
+      <div class="form-group">
+        <label for="regNombre">Nombre:</label>
+        <input type="text" id="regNombre" name="regNombre" maxlength="50" required />
+        <small id="regNombreError" class="error-msg"></small>
+      </div>
+      <div class="form-group">
+        <label for="regApellidos">Apellidos:</label>
+        <input type="text" id="regApellidos" name="regApellidos" maxlength="100" required />
+        <small id="regApellidosError" class="error-msg"></small>
+      </div>
+      <div class="form-group">
+        <label for="regEmail">Correo:</label>
+        <input type="email" id="regEmail" name="regEmail" maxlength="100" required />
+        <small id="regEmailError" class="error-msg"></small>
+      </div>
+      <div class="form-group">
+        <label for="regFechaNac">Fecha de Nacimiento:</label>
+        <input type="date" id="regFechaNac" name="regFechaNac" />
+      </div>
+      <div class="form-group">
+        <label for="regRegion">Región:</label>
+        <select id="regRegion" name="regRegion" required>
+          <option value="">Seleccione región</option>
+          <!-- Opciones de regiones cargadas por JS -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="regComuna">Comuna:</label>
+        <select id="regComuna" name="regComuna" required>
+          <option value="">Seleccione comuna</option>
+          <!-- Opciones de comunas cargadas dinámicamente -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="regDireccion">Dirección:</label>
+        <input type="text" id="regDireccion" name="regDireccion" maxlength="300" required />
+        <small id="regDireccionError" class="error-msg"></small>
+      </div>
+      <div class="form-group">
+        <label for="regPassword">Contraseña:</label>
+        <input type="password" id="regPassword" name="regPassword" maxlength="10" required />
+        <small id="regPasswordError" class="error-msg"></small>
+      </div>
+      <button type="submit">Registrarse</button>
+      <p id="regSuccess" class="success-msg" style="display:none;">¡Registro exitoso! Ya puedes iniciar sesión.</p>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

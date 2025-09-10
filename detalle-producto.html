@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle Producto - Mi Tienda</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Nav global -->
+  <header>
+    <nav class="main-nav">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt="Logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <ul class="nav-actions">
+        <li><a href="login.html">Login</a> / <a href="registro.html">Registro</a></li>
+        <li><a href="carrito.html" class="cart-link">🛒 Carrito <span id="cartCountDet">(0)</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Contenedor de detalle del producto, llenado dinámicamente -->
+    <section id="product-detail" class="product-detail">
+      <h2 id="prodName">Nombre del Producto</h2>
+      <div class="detail-content">
+        <img id="prodImage" src="img/placeholder.png" alt="Imagen del producto" class="detail-image" />
+        <div class="detail-info">
+          <p id="prodDesc">Descripción detallada del producto seleccionado.</p>
+          <p><strong>Precio:</strong> $<span id="prodPrice">0</span></p>
+          <p><strong>Stock disponible:</strong> <span id="prodStock">0</span> unidades</p>
+          <button id="addToCartBtn">Añadir al carrito</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

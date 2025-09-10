@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos - Mi Tienda</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header / Nav reutilizado -->
+  <header>
+    <nav class="main-nav">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt="Logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <ul class="nav-actions">
+        <li><a href="login.html" id="loginLinkNav">Login</a> / <a href="registro.html" id="registerLinkNav">Registro</a></li>
+        <li><a href="carrito.html" class="cart-link">🛒 Carrito <span id="cartCountNav">(0)</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Todos los Productos</h2>
+    <div id="product-list" class="product-grid">
+      <!-- Lista de productos cargados dinámicamente por JS -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
